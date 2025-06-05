@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "frontend": "CHOKIDAR_USEPOLLING=true nx run @app/frontend:dev",
+    "frontend": "nx run @app/frontend:dev",
     "backend": "nx run @app/backend:serve",
     "format": "npx prettier . --write"
   },
@@ -45,9 +45,6 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource/inter": "^5.0.18",
-    "@fontsource/plus-jakarta-sans": "^5.0.20",
-    "@fontsource/roboto": "^5.2.5",
-    "@fontsource/roboto-mono": "^5.0.18",
     "@hookform/resolvers": "^5.0.1",
     "@mui/icons-material": "^5.15.20",
     "@mui/lab": "^5.0.0-alpha.170",
@@ -61,6 +58,7 @@
     "@nestjs/jwt": "^11.0.0",
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^10.0.2",
+    "@next/bundle-analyzer": "^15.3.3",
     "@phosphor-icons/react": "^2.1.6",
     "@prisma/client": "^6.9.0",
     "apexcharts": "^4.7.0",

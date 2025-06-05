@@ -33,7 +33,6 @@ export function UserProvider({ children }: UserProviderProps): React.JSX.Element
   const checkSession = React.useCallback(async (): Promise<void> => {
     try {
       const { data, error } = await authClient.getUser();
-
       if (error) {
         logger.error(error);
         setState(prev => ({
@@ -44,7 +43,6 @@ export function UserProvider({ children }: UserProviderProps): React.JSX.Element
         }));
         return;
       }
-
       setState(prev => ({ ...prev, user: data ?? null, error: null, isLoading: false }));
     } catch (err) {
       logger.error(err);
