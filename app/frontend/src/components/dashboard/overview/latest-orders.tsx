@@ -50,8 +50,11 @@ export function LatestOrders({ orders = [], sx }: LatestOrdersProps): React.JSX.
             </TableRow>
           </TableHead>
           <TableBody>
-            {orders.map((order) => {
-              const { label, color } = statusMap[order.status] ?? { label: 'Unknown', color: 'default' };
+            {orders.map(order => {
+              const { label, color } = statusMap[order.status] ?? {
+                label: 'Unknown',
+                color: 'default',
+              };
 
               return (
                 <TableRow hover key={order.id}>

@@ -1,11 +1,13 @@
 'use client';
 
-import { User } from "@/types/user";
+import { api } from '@/api';
+import { User } from '@/types/user';
+import { toast } from 'react-toastify';
 
 function generateToken(): string {
   const arr = new Uint8Array(12);
   window.crypto.getRandomValues(arr);
-  return Array.from(arr, (v) => v.toString(16).padStart(2, '0')).join('');
+  return Array.from(arr, v => v.toString(16).padStart(2, '0')).join('');
 }
 
 const user = {
@@ -17,8 +19,8 @@ const user = {
 } satisfies User;
 
 export interface SignUpParams {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
 }
@@ -37,14 +39,17 @@ export interface ResetPasswordParams {
 }
 
 class AuthClient {
-  async signUp(_: SignUpParams): Promise<{ error?: string }> {
-    // Make API request
-
-    // We do not handle the API, so we'll just generate a token and store it in localStorage.
-    const token = generateToken();
-    localStorage.setItem('custom-auth-token', token);
-
-    return {};
+  async signUp(data: SignUpParams): Promise<{ status?: string }> {
+    try {
+      console.log(data)
+      const response = await api.post("/auth/signup", data)
+      localStorage.setItem('auth-token', response.data.access_token);
+      toast.success('Welcome !', {autoClose: 2500})
+      return {status: "OK"}
+    } catch (error) {
+      toast.error('Something went wrong :(', {autoClose: 2500})
+      return { status: 'Network error' };
+    }
   }
 
   async signInWithOAuth(_: SignInWithOAuthParams): Promise<{ error?: string }> {

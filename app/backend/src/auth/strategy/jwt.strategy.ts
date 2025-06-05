@@ -11,17 +11,15 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: JWT_SECRET ?? (() => { throw new Error('JWT_SECRET not set'); })(),
+      secretOrKey:
+        JWT_SECRET ??
+        (() => {
+          throw new Error('JWT_SECRET not set');
+        })(),
     });
-    
   }
 
-  validate(payload: {
-    sub: number;
-    email: string;
-    lastname: string;
-    firstname: string;
-  }) {
+  validate(payload: { sub: number; email: string; lastname: string; firstname: string }) {
     return payload;
   }
 }

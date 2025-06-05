@@ -17,7 +17,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 export function Notifications(): React.JSX.Element {
   return (
     <form
-      onSubmit={(event) => {
+      onSubmit={event => {
         event.preventDefault();
       }}
     >

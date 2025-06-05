@@ -46,7 +46,7 @@ export function CustomersTable({
   rowsPerPage = 0,
 }: CustomersTableProps): React.JSX.Element {
   const rowIds = React.useMemo(() => {
-    return rows.map((customer) => customer.id);
+    return rows.map(customer => customer.id);
   }, [rows]);
 
   const { selectAll, deselectAll, selectOne, deselectOne, selected } = useSelection(rowIds);
@@ -64,7 +64,7 @@ export function CustomersTable({
                 <Checkbox
                   checked={selectedAll}
                   indeterminate={selectedSome}
-                  onChange={(event) => {
+                  onChange={event => {
                     if (event.target.checked) {
                       selectAll();
                     } else {
@@ -81,7 +81,7 @@ export function CustomersTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => {
+            {rows.map(row => {
               const isSelected = selected?.has(row.id);
 
               return (
@@ -89,7 +89,7 @@ export function CustomersTable({
                   <TableCell padding="checkbox">
                     <Checkbox
                       checked={isSelected}
-                      onChange={(event) => {
+                      onChange={event => {
                         if (event.target.checked) {
                           selectOne(row.id);
                         } else {

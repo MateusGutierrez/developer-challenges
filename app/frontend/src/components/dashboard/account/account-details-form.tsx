@@ -24,7 +24,7 @@ const states = [
 export function AccountDetailsForm(): React.JSX.Element {
   return (
     <form
-      onSubmit={(event) => {
+      onSubmit={event => {
         event.preventDefault();
       }}
     >
@@ -61,7 +61,7 @@ export function AccountDetailsForm(): React.JSX.Element {
               <FormControl fullWidth>
                 <InputLabel>State</InputLabel>
                 <Select defaultValue="New York" label="State" name="state" variant="outlined">
-                  {states.map((option) => (
+                  {states.map(option => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
                     </MenuItem>

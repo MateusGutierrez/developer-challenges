@@ -16,13 +16,16 @@ import { IntegrationCard } from '@/components/dashboard/integrations/integration
 import type { Integration } from '@/components/dashboard/integrations/integrations-card';
 import { CompaniesFilters } from '@/components/dashboard/integrations/integrations-filters';
 
-export const metadata = { title: `Integrations | Dashboard | ${config.site.name}` } satisfies Metadata;
+export const metadata = {
+  title: `Integrations | Dashboard | ${config.site.name}`,
+} satisfies Metadata;
 
 const integrations = [
   {
     id: 'INTEG-006',
     title: 'Dropbox',
-    description: 'Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.',
+    description:
+      'Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.',
     logo: '/assets/logo-dropbox.png',
     installs: 594,
     updatedAt: dayjs().subtract(12, 'minute').toDate(),
@@ -30,7 +33,8 @@ const integrations = [
   {
     id: 'INTEG-005',
     title: 'Medium Corporation',
-    description: 'Medium is an online publishing platform developed by Evan Williams, and launched in August 2012.',
+    description:
+      'Medium is an online publishing platform developed by Evan Williams, and launched in August 2012.',
     logo: '/assets/logo-medium.png',
     installs: 625,
     updatedAt: dayjs().subtract(43, 'minute').subtract(1, 'hour').toDate(),
@@ -38,7 +42,8 @@ const integrations = [
   {
     id: 'INTEG-004',
     title: 'Slack',
-    description: 'Slack is a cloud-based set of team collaboration tools and services, founded by Stewart Butterfield.',
+    description:
+      'Slack is a cloud-based set of team collaboration tools and services, founded by Stewart Butterfield.',
     logo: '/assets/logo-slack.png',
     installs: 857,
     updatedAt: dayjs().subtract(50, 'minute').subtract(3, 'hour').toDate(),
@@ -62,7 +67,8 @@ const integrations = [
   {
     id: 'INTEG-001',
     title: 'Squarespace',
-    description: 'Squarespace provides software as a service for website building and hosting. Headquartered in NYC.',
+    description:
+      'Squarespace provides software as a service for website building and hosting. Headquartered in NYC.',
     logo: '/assets/logo-squarespace.png',
     installs: 435,
     updatedAt: dayjs().subtract(25, 'minute').subtract(6, 'hour').subtract(6, 'day').toDate(),
@@ -92,7 +98,7 @@ export default function Page(): React.JSX.Element {
       </Stack>
       <CompaniesFilters />
       <Grid container spacing={3}>
-        {integrations.map((integration) => (
+        {integrations.map(integration => (
           <Grid key={integration.id} lg={4} md={6} xs={12}>
             <IntegrationCard integration={integration} />
           </Grid>

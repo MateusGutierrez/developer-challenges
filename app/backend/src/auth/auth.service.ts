@@ -6,10 +6,7 @@ import { SignUpDto, UserResponseDto } from './dto/auth';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private prisma: PrismaService,
-    private jwt: JwtService,
-  ) {}
+  constructor(private prisma: PrismaService, private jwt: JwtService) {}
 
   async signup(userCredentials: SignUpDto) {
     const hashed = await bcrypt.hash(userCredentials.password, 10);
@@ -37,12 +34,7 @@ export class AuthService {
     return this.signToken(user.id, user.email, user.lastname, user.firstname);
   }
 
-  signToken(
-    userId: number,
-    email: string,
-    lastname: string,
-    firstname: string,
-  ) {
+  signToken(userId: number, email: string, lastname: string, firstname: string) {
     const payload = { sub: userId, email, lastname, firstname };
     return {
       access_token: this.jwt.sign(payload),

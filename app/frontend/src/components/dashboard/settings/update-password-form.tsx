@@ -15,7 +15,7 @@ import Stack from '@mui/material/Stack';
 export function UpdatePasswordForm(): React.JSX.Element {
   return (
     <form
-      onSubmit={(event) => {
+      onSubmit={event => {
         event.preventDefault();
       }}
     >
